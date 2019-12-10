@@ -38,6 +38,7 @@
         label="地址">
       </el-table-column>
     </custom-table>
+    <div class="sanjiaoxing"></div>
     <div>{{tuominName}}</div>
   </div>
 </template>
@@ -165,6 +166,13 @@ export default class Home extends Vue {
     // /deep/ .el-tree-node:focus.el-tree-node__content{
     //   background-color: #5daaf0;
     // }
+    .sanjiaoxing {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 50px solid red;
+    }
   }
   
 </style>
