@@ -33,9 +33,7 @@
         @blur="blurFun"
         @focus="focusFun"
         @input="inputFun">
-            <div class="option">
-              <slot name="option"></slot>
-            </div>
+            <slot></slot>
         </el-select>
     </div>
 </template>

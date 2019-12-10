@@ -13,6 +13,9 @@ import customDialog2 from '@/components/customDialog2';
 import customSelect from '@/components/customSelect';
 import customRadio from '@/components/customRadio';
 import customButton from '@/components/customButton';
+import customLink from '@/components/customLink';
+import customSwitch from '@/components/customSwitch';
+import customTable from '@/components/customTable';
 import jiaqi_npm_test from 'jiaqi_npm_test';
 //注册到vue原型上
 Vue.prototype.clipboard = clipboard;
@@ -28,6 +31,9 @@ Vue.use(customDialog2);
 Vue.use(customSelect);
 Vue.use(customRadio);
 Vue.use(customButton);
+Vue.use(customLink);
+Vue.use(customSwitch);
+Vue.use(customTable);
 
 new Vue({
   router,
