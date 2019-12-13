@@ -17,8 +17,9 @@ import customLink from '@/components/customLink';
 import customSwitch from '@/components/customSwitch';
 import customTable from '@/components/customTable';
 
-import MainHeader from '@/components/header';
-import SideNav from '@/components/side-nav';
+import MainHeader from '@/components/header.vue';
+
+import './assets/styles/common.css';
 import jiaqi_npm_test from 'jiaqi_npm_test';
 //注册到vue原型上
 Vue.prototype.clipboard = clipboard;
@@ -39,8 +40,6 @@ Vue.use(customSwitch);
 Vue.use(customTable);
 
 Vue.component('main-header', MainHeader);
-Vue.component('side-nav', SideNav);
-
 
 new Vue({
   router,
