@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import 'highlight.js/styles/color-brewer.css' //导入高亮样式
+import 'vue2-animate/dist/vue2-animate.min.css'
+import './assets/styl/index.styl'; //导入基本样式
+import demoBlock from './components/demo-block.vue'//高亮代码块组件
+
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -26,7 +31,7 @@ Vue.prototype.clipboard = clipboard;
 Vue.prototype.$hideName = jiaqi_npm_test.$hideName;
 
 Vue.config.productionTip = false
-
+Vue.component('demo-block', demoBlock)
 Vue.use(ElementUI);
 // 自定义组件导入
 Vue.use(customInput);

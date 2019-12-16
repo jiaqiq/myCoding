@@ -10,7 +10,6 @@ Object.keys(navConf).forEach((header) => {
   routes = routes.concat(navConf[header])
 })
 
-
 let addComponent = (router) => {
   router.forEach((route) => {
     if (route.items) {
@@ -22,8 +21,8 @@ let addComponent = (router) => {
       //     r(require(`../other/${route.name}.vue`)))
       //   return
       // }
-      // route.component = r => require.ensure([], () =>
-      //   r(require(`../docs/${route.name}.md`)))
+      route.component = r => require.ensure([], () =>
+        r(require(`../docs/${route.name}.md`)))
     }
   })
 }

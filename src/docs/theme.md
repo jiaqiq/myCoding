@@ -9,7 +9,7 @@
      margin-left:30px;
      height:612px;
      width:404px;
-     background: url("../assets/img/theme-set.jpg") no-repeat;
+     background: url("../assets/images/theme-set.jpg") no-repeat;
   }
 </style>
 <div class="img"></div>
