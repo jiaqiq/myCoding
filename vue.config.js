@@ -32,7 +32,8 @@ function convertHtml(str) {
     }
   }
 
-const a = {
+const option = {
+    raw: true,
     use: [
       [require('markdown-it-anchor'), {
         level: 2, // 添加超链接锚点的最小标题级别, 如: #标题 不会添加锚点
@@ -165,16 +166,21 @@ module.exports = {
 
           // 配置 markdown
           config.module.rule('md')
-            .test(/\.md$/)
+            .test(/\.md/)
             .use('vue-loader')
             .loader('vue-loader')
             .end()
             .use('vue-markdown-loader')
             .loader('vue-markdown-loader/lib/markdown-compiler')
-            .options({
-              raw: true
-            })
-            // .options(a)
+            // .options({
+            //   raw: true
+            // })
+            .options(option)
+            // .tap(options => {
+            //   // 修改它的选项...
+            //   options = option
+            //   return options
+            // })
     },
 
     devServer: {
