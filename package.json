@@ -25,13 +25,18 @@
     "markdown-it-anchor": "^5.0.2",
     "markdown-it-container": "^2.0.0",
     "node-sass": "^4.12.0",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.8",
+    "postcss-url": "^7.2.1",
     "sass-loader": "^8.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "transliteration": "^1.6.6",
     "typescript": "^3.4.3",
     "vue-markdown-loader": "^2.4.1",
     "vue-template-compiler": "^2.6.10",
-    "vue2-animate": "^2.1.0"
+    "vue2-animate": "^2.1.0",
+    "vue-style-loader": "^3.0.1"
   },
   "postcss": {
     "plugins": {

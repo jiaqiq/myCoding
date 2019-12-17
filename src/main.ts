@@ -9,18 +9,17 @@ import demoBlock from './components/demo-block.vue'//高亮代码块组件
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
+import CustomUI from '../packages/index';
+import customInput from '../packages/customInput';
+import customDialog from '../packages/customDialog';
+import customDialog2 from '../packages/customDialog2';
+import customSelect from '../packages/customSelect';
+import customRadio from '../packages/customRadio';
+import customButton from '../packages/customButton';
+import customLink from '../packages/customLink';
+import customSwitch from '../packages/customSwitch';
+import customTable from '../packages/customTable';
 import clipboard from 'clipboard';
-
-import customInput from '@/components/customInput';
-import customDialog from '@/components/customDialog';
-import customDialog2 from '@/components/customDialog2';
-import customSelect from '@/components/customSelect';
-import customRadio from '@/components/customRadio';
-import customButton from '@/components/customButton';
-import customLink from '@/components/customLink';
-import customSwitch from '@/components/customSwitch';
-import customTable from '@/components/customTable';
 
 import MainHeader from '@/components/header.vue';
 
@@ -43,9 +42,8 @@ Vue.use(customButton);
 Vue.use(customLink);
 Vue.use(customSwitch);
 Vue.use(customTable);
-
+Vue.use(CustomUI);
 Vue.component('main-header', MainHeader);
-
 new Vue({
   router,
   render: h => h(App)
