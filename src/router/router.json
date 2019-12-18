@@ -18,7 +18,7 @@
   ],
   "组件": [
     {
-      "desc": "basic",
+      "desc": "Basic",
       "path": "/component",
       "items": [
         {
@@ -30,6 +30,16 @@
           "desc": "Button 按钮",
           "name": "button",
           "path": "/button"
+        },
+        {
+          "desc": "CustomButton 按钮",
+          "name": "CustomButton",
+          "path": "/CustomButton"
+        },
+        {
+          "desc": "CustomInput 输入框",
+          "name": "CustomInput",
+          "path": "/CustomInput"
         }
       ]
     },
