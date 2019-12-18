@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const resolve = (dir) => path.join(__dirname, dir);
-const md = require('markdown-it')(); // 引入markdown-it
+const md = require('markdown-it')({breaks: false}); // 引入markdown-it
 const MarkdownItContainer = require('markdown-it-container')
 const striptags = require('./strip-tags'); // 引入刚刚的工具类
 const slugify = require('transliteration').slugify; // 引入transliteration中的slugify方法
@@ -72,9 +72,9 @@ const option = {
             jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
             // 起始标签,写入demo-block模板开头,并传入参数
             return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
-                              <div class="source" slot="source">${html}</div>
-                              ${descriptionHTML}
-                              <div class="highlight" slot="highlight">`;
+                        <div class="source" slot="source">${html}</div>
+                        ${descriptionHTML}
+                        <div class="highlight" slot="highlight">`;
           }
           // 否则闭合标签
           return '</div></demo-block>\n';
@@ -146,7 +146,9 @@ const option = {
 
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
-    outputDir: 'dist', //打包输出目录默认dist
+    outputDir: process.env.outputDir || 'dist', // 'dist', 生产环境构建文件的目录
+    // assetsDir: "", // 相对于outputDir的静态资源(js、css、img、fonts)目录
+
     configureWebpack: config => {
         if (process.env.NODE_ENV === 'production') {
             // 为生产环境修改配置...
@@ -159,36 +161,39 @@ module.exports = {
         //修改文件引入自定义路径
         config.resolve.alias
           .set('@', resolve('src'))
-          .set('style', resolve('src/assets/style'))
           .set('components', resolve('src/components'))
-          .set('common', resolve('src/common'))
           .set('api', resolve('src/api'))
 
-          // 配置 markdown
-          config.module.rule('md')
-            .test(/\.md/)
-            .use('vue-loader')
-            .loader('vue-loader')
-            .end()
-            .use('vue-markdown-loader')
-            .loader('vue-markdown-loader/lib/markdown-compiler')
-            // .options({
-            //   raw: true
-            // })
-            .options(option)
-            // .tap(options => {
-            //   // 修改它的选项...
-            //   options = option
-            //   return options
-            // })
+        // 配置 markdown
+        config.module.rule('md')
+          .test(/\.md/)
+          .use('vue-loader')
+          .loader('vue-loader')
+          .end()
+          .use('vue-markdown-loader')
+          .loader('vue-markdown-loader/lib/markdown-compiler')
+          .options(option)
     },
-
+    // PWA 插件的选项。
+    // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli-plugin-pwa/README.md
+    pwa: {},
     devServer: {
-        port: 9999,
-        host: 'localhost',
-        https: false,
+        port: 9999, //端口
+        host: 'localhost', //主机地址
+        https: false, //是否为https协议
         open: true,  //配置自动启动浏览器
-        // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
+        // hotOnly: false, // 热更新
+        proxy: {
+          "/api": {
+            target: "https://www.easy-mock.com/mock/5bc75b55dc36971c160cad1b/sheets", // 目标代理接口地址
+            secure: false,
+            changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
+            // ws: true, // 是否启用websockets
+            pathRewrite: {
+              "^/api": "/"
+            }
+          }
+        }
         // proxy: {
         //     '/api': {
         //         target: '<url>',
