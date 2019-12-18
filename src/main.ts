@@ -11,15 +11,7 @@ import '../packages/theme-set/lib/index.css' //导入UI样式
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CustomUI from '../packages/index';
-import customInput from '../packages/customInput';
-import customDialog from '../packages/customDialog';
-import customDialog2 from '../packages/customDialog2';
-import customSelect from '../packages/customSelect';
-import customRadio from '../packages/customRadio';
-import customButton from '../packages/customButton';
-import customLink from '../packages/customLink';
-import customSwitch from '../packages/customSwitch';
-import customTable from '../packages/customTable';
+
 import clipboard from 'clipboard';
 
 import MainHeader from '@/components/header.vue';
@@ -31,20 +23,12 @@ Vue.prototype.clipboard = clipboard;
 Vue.prototype.$hideName = jiaqi_npm_test.$hideName;
 
 Vue.config.productionTip = false
+Vue.component('main-header', MainHeader);
 Vue.component('demo-block', demoBlock)
 Vue.use(ElementUI);
 // 自定义组件导入
-Vue.use(customInput);
-Vue.use(customDialog);
-Vue.use(customDialog2);
-Vue.use(customSelect);
-Vue.use(customRadio);
-Vue.use(customButton);
-Vue.use(customLink);
-Vue.use(customSwitch);
-Vue.use(customTable);
 Vue.use(CustomUI);
-Vue.component('main-header', MainHeader);
+
 new Vue({
   router,
   render: h => h(App)
