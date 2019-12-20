@@ -7,6 +7,7 @@ import CustomRadio from './customRadio';
 import CustomSelect from './customSelect';
 import CustomSwitch from './customSwitch';
 import CustomTable from './customTable';
+import CustomTag from './customTag';
 
 import Button from './button/index.js';
 import collapseTransition from './collapse-transition/collapse-transition.js';
@@ -24,6 +25,7 @@ const components = [
   CustomSelect,
   CustomSwitch,
   CustomTable,
+  CustomTag,
 
   Button,
   collapseTransition,
@@ -35,7 +37,6 @@ const install = function(Vue) {
   if (install.installed) return
   // components.map(component => Vue.component(component.name, component))
   components.map(component => {
-    console.log(111, component)
     Vue.component(component.name, component)
   })
   Vue.prototype.$message = Message;
@@ -54,6 +55,7 @@ export default {
   CustomSelect,
   CustomSwitch,
   CustomTable,
+  CustomTag,
 
   install,
   Button,

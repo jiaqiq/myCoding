@@ -1,6 +1,6 @@
 <template>
     <div class="custom-select-container"
-        :style="`width:${customWidth || customWidthValue}px; height:${customHeight || customHeightValue}px`">
+        :style="`width:${customWidth}px; height:${customHeight}px`">
         <el-select
         :value="value"
         :autocomplete="autocomplete"
@@ -44,8 +44,14 @@ export default {
     name: 'CustomSelect',
 
     props: {
-      customWidth: [String, Number],
-      customHeight: [String, Number],
+      customWidth: {
+          type: [String, Number],
+          default: 240
+      },
+      customHeight: {
+          type: [String, Number],
+          default: 30
+      },
       value: [String, Number, Boolean],
       autocomplete: {
         type: String,
@@ -101,8 +107,7 @@ export default {
 
     data() {
         return {
-            customWidthValue: 240,
-            customHeightValue: 30
+            
         }
     },
 
@@ -142,20 +147,21 @@ export default {
 
 <style lang="scss" scoped>
     .custom-select-container {
+        display: inline-block;
         /deep/ .el-select {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height: 100% !important;
         }
         /deep/ .el-input {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height: 100% !important;
         }
         /deep/ .el-input__inner {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height: 100% !important;
         }
         /deep/ .el-input__icon {
-            line-height: 100%;
+            line-height: 100% !important;
         }
     }
 </style>

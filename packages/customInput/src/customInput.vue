@@ -131,19 +131,20 @@ export default {
     $border-color: #2E8AF1;
     
     .custom-input-container {
+        display: inline-block;
         /deep/ .el-input {
-            width:100%;
-            height:100%;
+            width:100% !important;
+            height:100% !important;
         }
         /deep/ .el-input__inner {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height: 100% !important;
         }
         /deep/ .el-input__inner:focus {
             border-color: $border-color;
         }
         /deep/ .el-input__icon {
-            line-height: 100%;
+            line-height: 100% !important;
         }
     }
 </style>

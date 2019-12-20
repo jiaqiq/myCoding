@@ -44,6 +44,28 @@
       ]
     },
     {
+      "desc": "Basic",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "CustomSelect 选择器",
+          "name": "CustomSelect",
+          "path": "/CustomSelect"
+        }
+      ]
+    },
+    {
+      "desc": "Data",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "CustomTag 标签",
+          "name": "CustomTag",
+          "path": "/CustomTag"
+        }
+      ]
+    },
+    {
       "desc": "notice",
       "path": "/component",
       "items": [
