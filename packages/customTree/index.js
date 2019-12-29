@@ -8,7 +8,7 @@
 
 import CustomTree from './src/customTree.vue';
 
-CustomTable.install = function(Vue) {
+CustomTree.install = function(Vue) {
   Vue.component(CustomTree.name, CustomTree);
 };
 

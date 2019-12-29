@@ -5,14 +5,14 @@
         margin-bottom: 0;
       }
     }
-    .custom-input-container {
+    .custom-switch-container {
         /* display: inline-block;
         margin: 0 10px 20px 0; */
     }
   }
 </style>
 
-# CustomInput 输入框
+# CustomSwitch 开关
 
 ---
 
@@ -24,7 +24,6 @@
 </div>
 
 ::: demo
-
 ```html
 <div>
     <custom-switch v-model="value">

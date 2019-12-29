@@ -5,14 +5,14 @@
         margin-bottom: 0;
       }
     }
-    .custom-input-container {
+    .custom-select-container {
         /* display: inline-block;
         margin: 0 10px 20px 0; */
     }
   }
 </style>
 
-# CustomInput 输入框
+# CustomSelect 选择框
 
 ---
 
