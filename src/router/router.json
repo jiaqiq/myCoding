@@ -67,6 +67,11 @@
           "desc": "CustomTag 标签",
           "name": "CustomTag",
           "path": "/CustomTag"
+        },
+        {
+          "desc": "CustomTree 树形控件",
+          "name": "CustomTree",
+          "path": "/CustomTree"
         }
       ]
     },
