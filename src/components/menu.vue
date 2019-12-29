@@ -1,14 +1,14 @@
 <!--左侧菜单-->
 <template>
   <div class="menu">
-    <div v-for="title in (Object.keys(data))" class="group-container">
+    <div v-for="(title, index) in (Object.keys(data))" class="group-container" :key="index">
       <p class="menu-title">{{title}}</p>
-      <div class="menu-items" v-for="nav in data[title]" v-if="nav.desc">
+      <div class="menu-items" v-for="(nav, index) in data[title]" v-show="nav.desc" :key="index">
         <router-link :class="$route.name===nav.name ? 'active' : ''" v-if="nav.name" :to="{name: nav.name}">
           {{nav.desc}}
         </router-link>
         <p v-else class="menu-group">{{nav.desc}}</p>
-        <div class="menu-items-son" v-for="item in nav.items">
+        <div class="menu-items-son" v-for="(item, index) in nav.items" :key="index">
           <router-link :to="{name: item.name}" :class="$route.name===item.name ? 'active' : ''"
                        class="menu-component">{{item.desc}}
           </router-link>

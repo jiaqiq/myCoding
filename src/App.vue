@@ -22,19 +22,25 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-#app
-  .app-main
+<style lang="scss" scoped>
+#app {
+  .app-main {
+    max-width: 1140px;
+    margin: 0 auto;
     display: flex;
-    min-width: 1101px;
-    margin: 0 auto 50px auto;
-    width: 85%;
-    .app-main-left
-      min-width 230px
-      position relative
-    .app-main-right
-      position relative
-      padding-top 15px
-      flex 1
+    display: -webkit-flex;
+    .app-main-left {
+      min-width: 230px;
+      position: relative;
+    }
+    .app-main-right {
+      position: relative;
+      padding-top: 15px;
+      flex: 1;
+      max-width: calc(100% - 230px);
+    }
+  }
+}
+  
 </style>
 
