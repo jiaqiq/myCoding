@@ -27,7 +27,7 @@
     overflow: hidden;
 
   .docs
-    width: calc(100% - 230px);
+    width: calc(100% - 260px);
     height: auto;
     box-sizing: border-box;
     font-size: 14px;

@@ -33,11 +33,12 @@
   @import "../assets/styl/var.styl"
   .menu
     display: inline-block;
-    margin: 32px 0;
-    padding: 0 10px;
+    width: 100%;
     color: #3F536E;
     background-color: #fff;
     z-index: 99;
+    padding: 50px 0;
+    padding-right: 10px;
     .group-container
       margin-bottom: 15px;
     .menu-title
@@ -59,23 +60,23 @@
       a
         display: block;
         position: relative;
-        padding: 8px 24px;
+        padding: 8px 0 8px;
         color: #3F536E;
         font-weight: normal;
         line-height: 1.5;
         cursor: pointer;
       .menu-group
-        padding: 4px 0 4px 16px;
-        font-size: 15px;
+        padding: 4px 0 4px 0;
+        font-size: 12px;
         color: lighten($color-primary, 30%);
-        font-weight: 600;
       .menu-component
         display: block;
         position: relative;
-        padding: 6px 24px 6px 32px;
+        padding: 6px 0;
         color: #616367;
         font-size: 15px;
       .active, a:hover
         color: darken($color-primary, 50%);
         font-weight 600
 </style>
+

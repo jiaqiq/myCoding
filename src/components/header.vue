@@ -4,6 +4,7 @@
   }
 
   .header {
+    position: fixed;
     height: 80px;
     background-color: #fff;
     color: #fff;
@@ -12,7 +13,6 @@
     width: 100%;
     line-height: 80px;
     z-index: 100;
-    position: relative;
 
     .container {
       height: 100%;
