@@ -1,14 +1,14 @@
 <template>
     <div class="custom-radio-container">
         <el-radio
-        :value="value"
-        :label="label"
-        :name="name"
-        :size="size"
-        :border="border"
-        :disabled="disabled"
-        @change="changeFun"
-        @input="inputFun">
+            :value="value"
+            :label="label"
+            :name="name"
+            :size="size"
+            :border="border"
+            :disabled="disabled"
+            @change="changeFun"
+            @input="inputFun">
         </el-radio>
     </div>
 </template>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/index'
 
 import 'highlight.js/styles/color-brewer.css' //导入高亮样式
 import 'vue2-animate/dist/vue2-animate.min.css'
@@ -17,10 +17,8 @@ import clipboard from 'clipboard';
 import MainHeader from '@/components/header.vue';
 
 import './assets/styles/common.css';
-import jiaqi_npm_test from 'jiaqi_npm_test';
 //注册到vue原型上
 Vue.prototype.clipboard = clipboard;
-Vue.prototype.$hideName = jiaqi_npm_test.$hideName;
 
 Vue.config.productionTip = false
 Vue.component('main-header', MainHeader);

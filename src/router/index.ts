@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import navConf from './router.json'
+// import navConf from './router.json'
+const navConf = require('./router.json')
 
 Vue.use(Router)
 
-let routes = []
+let routes:any = [];
 
 Object.keys(navConf).forEach((header) => {
   routes = routes.concat(navConf[header])
 })
 
-let addComponent = (router) => {
-  router.forEach((route) => {
+let addComponent = (router:any) => {
+  router.forEach((route:any) => {
     if (route.items) {
       addComponent(route.items)
       routes = routes.concat(route.items)
@@ -21,7 +22,7 @@ let addComponent = (router) => {
       //     r(require(`../other/${route.name}.vue`)))
       //   return
       // }
-      route.component = r => require.ensure([], () =>
+      route.component = (r:any) => require.ensure([], () =>
         r(require(`../docs/${route.name}.md`)))
     }
   })

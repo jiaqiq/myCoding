@@ -1,22 +1,26 @@
 <template>
-  <el-switch
-    :value="value"
-    :disabled="disabled"
-    :width="width"
-    :active-icon-class="activeIconClass"
-    :inactive-icon-class="inactiveIconClass"
-    :active-text="activeText"
-    :inactive-text="inactiveText"
-    :active-value="activeValue"
-    :inactive-value="inactiveValue"
-    :active-color="activeColor"
-    :inactive-color="inactiveColor"
-    :name="name"
-    :validate-event="validateEvent"
-    @change="changeFun"
-    @input="inputFun"
-    >
-  </el-switch>
+  <div id="custom-switch-container">
+    <div :class="isInnerText ? 'inner': ''">
+      <el-switch
+        :value="value"
+        :disabled="disabled"
+        :width="width"
+        :active-icon-class="activeIconClass"
+        :inactive-icon-class="inactiveIconClass"
+        :active-text="isInnerText ? activeTextComp: activeText"
+        :inactive-text="isInnerText ? inactiveTextComp: inactiveText"
+        :active-value="activeValue"
+        :inactive-value="inactiveValue"
+        :active-color="activeColor"
+        :inactive-color="inactiveColor"
+        :name="name"
+        :validate-event="validateEvent"
+        @change="changeFun"
+        @input="inputFun"
+        >
+      </el-switch>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -24,6 +28,10 @@ export default {
     name: 'CustomSwitch',
 
     props: {
+      isInnerText: {
+        type: Boolean,
+        default: false
+      },
       value: {
         type: [Boolean, String, Number],
         default: false
@@ -72,6 +80,23 @@ export default {
       }
     },
 
+    computed: {
+      activeTextComp: function() {
+        if (this.value && this.activeText) {
+          return this.activeText;
+        }else {
+          return ' ';     // 空格占位 平滑过度
+        }
+      },
+      inactiveTextComp: function() {
+        if (!this.value && this.inactiveText) {
+          return this.inactiveText;
+        }else {
+          return ' ';
+        }
+      }
+    },
+
     methods: {
         changeFun() {
             this.$emit('change');
@@ -83,6 +108,28 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  #custom-switch-container {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    .inner {
+      /deep/ .el-switch__label--right {
+        position: absolute;
+        top: 0;
+        left: 5px;
+        color: #fff;
+        margin-left: 0 !important;
+        z-index: 2019;
+      }
+      /deep/ .el-switch__label--left {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        color: #fff;
+        margin-right: 0 !important;
+        z-index: 2019;
+      }
+    }
+  }
 </style>

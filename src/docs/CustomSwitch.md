@@ -19,22 +19,22 @@
 ### 基础用法
 
 <div class="demo-block">
-    <div>
-        <custom-input v-model="inputValue"></custom-input>
-    </div>
+    <custom-switch v-model="value" active-text="是" inactive-text="否" :isInnerText="true">
+    </custom-switch>
 </div>
 
 ::: demo
 
 ```html
 <div>
-    <custom-input v-model="inputValue" placeholder="请输入内容"></custom-input>
+    <custom-switch v-model="value">
+    </custom-switch>
 
     <script>
         export default {
             data() {
                 return {
-                    inputValue: ''
+                    value: ''
                 }
             }
         }
@@ -48,7 +48,7 @@
     export default {
         data() {
             return {
-                inputValue: ''
+                value: ''
             };
         }   
     }

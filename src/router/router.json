@@ -44,13 +44,18 @@
       ]
     },
     {
-      "desc": "Basic",
+      "desc": "Form",
       "path": "/component",
       "items": [
         {
           "desc": "CustomSelect 选择器",
           "name": "CustomSelect",
           "path": "/CustomSelect"
+        },
+        {
+          "desc": "CustomSwitch 开关",
+          "name": "CustomSwitch",
+          "path": "/CustomSwitch"
         }
       ]
     },
@@ -77,13 +82,18 @@
       ]
     },
     {
-      "desc": "others",
+      "desc": "Others",
       "path": "/component",
       "items": [
         {
           "desc": "carousel 走马灯",
           "name": "carousel",
           "path": "/carousel"
+        },
+        {
+          "desc": "CustomDialog 对话框",
+          "name": "CustomDialog",
+          "path": "/CustomDialog"
         }
       ]
     }

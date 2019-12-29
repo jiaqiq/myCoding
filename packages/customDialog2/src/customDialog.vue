@@ -135,3 +135,27 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+
+  // 减去滚动条宽度
+  // /deep/ .el-row {
+  //   width: calc(100% - 10px) !important;
+  // }
+    /*修改滚动条样式*/
+  .content-class::-webkit-scrollbar {
+      width:10px;
+      height:10px;
+    }
+  .content-class::-webkit-scrollbar-track {
+      background: rgb(239, 239, 239);
+      border-radius:2px;
+    }
+  .content-class::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.10);
+      border-radius:10px;
+    }
+  .content-class::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.25);
+  }
+</style>

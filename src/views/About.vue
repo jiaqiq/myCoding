@@ -74,11 +74,12 @@ export default class Home extends Vue {
 
   selectedArr = [];
 
+// 打包报错暂时注掉
   copy(row: object) {
-    this.selectedArr = [];
-    row.address.map(item => {
-      this.selectedArr.push(item);
-    });
+    // this.selectedArr = [];
+    // row.address.map((item:any) => {
+    //   this.selectedArr.push(item);
+    // });
   }
 
   paste(row: object, idx: any) {

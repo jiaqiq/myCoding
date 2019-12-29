@@ -145,9 +145,16 @@ const option = {
   }
 
 module.exports = {
+    /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */
     publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
     outputDir: process.env.outputDir || 'dist', // 'dist', 生产环境构建文件的目录
-    // assetsDir: "", // 相对于outputDir的静态资源(js、css、img、fonts)目录
+    /* 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录 */
+    assetsDir: "assets",
+    // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建
+    productionSourceMap: true,
+    lintOnSave: true, // 是否开启eslint保存检测，有效值：ture | false | 'error'
+    // 默认在生成的静态资源文件名中包含hash以控制缓存
+    filenameHashing: true,
 
     configureWebpack: config => {
         if (process.env.NODE_ENV === 'production') {
