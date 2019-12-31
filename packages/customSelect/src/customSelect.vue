@@ -119,8 +119,8 @@ export default {
     },
 
     methods: {
-        changeFun() {
-            this.$emit('change');
+        changeFun(val) {
+            this.$emit('change', val);
         },
         visibleChangeFun() {
             this.$emit('visibleChange');

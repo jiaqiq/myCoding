@@ -60,6 +60,30 @@
             </el-pagination>
         </el-col>
     </el-row>
+    <el-row>
+        <el-table
+            :data="tableData2"
+            style="width: 100%">
+            <el-table-column
+                prop="level1"
+                label="一级类别"
+                width="180">
+                <template slot-scope="scope">
+                    <span v-html="scope.row.level1"></span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                prop="level2"
+                label="二级类别"
+                width="180">
+                <template slot-scope="scope">
+                    <span v-html="scope.row.level2"></span>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div v-html="result1"></div>
+        <div v-html="result2"></div>
+    </el-row>
     
 </div>
 
@@ -154,15 +178,66 @@
                     label: 'label'
                 },
 
-                tableData: []
+                tableData: [],
+                tableData2: []
             };
         },
+        created() {
+            this.compare();
+        },
+
         computed: {
             tableDataComp() {
                 return this.tableData.slice((this.pageInfo.pageNo-1)*this.pageInfo.pageSize,this.pageInfo.pageNo*this.pageInfo.pageSize)
             }
         },
         methods: {
+            compare() {
+                let a = 'aaaaaaa';
+                let b = 'a1aabbb';
+                this.result = this.highlight(a, b);
+                this.result1 = this.result[0].join('');
+                this.result2 = this.result[1].join('');
+                this.tableData2.push({
+                    level1: this.result1,
+                    level2: this.result2
+                })
+                console.log(this.result1, this.result2)
+            },
+            // 比较两个字符串找不同 高亮显示
+            highlight() {
+                var params = Array.prototype.slice.call(arguments);
+                var result = params.map(function (e) {
+                    e = e.toUpperCase();
+                    e = e.replace(
+                        /[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?]/g,
+                        "");
+                    return e.split("");
+                });
+                var maxLen = eval(" Math.max(" + result.map(function (e) {
+                    return e.length
+                }).join(",") + ")");
+                result.forEach(function (e) {
+                    if (e.length < maxLen) {
+                        e.length = maxLen;
+                    };
+                });
+                var index = [];
+                for (var i = 0; i < result[0].length; i++) {
+                    if (result[0][i] === result[1][i]) {
+                        continue;
+                    } else {
+                        index.push(i);
+                    }
+                };
+        
+                index.forEach(function (e) {
+                    result[0][e] = "<span class='red'>" + (result[0][e] ? result[0][e] : "") + "</span>"
+                    result[1][e] = "<span class='red'>" + (result[1][e] ? result[1][e] : "") + "</span>"
+                });
+                return result
+            },
+
             handleSizeChange(val) {
                 this.pageInfo.pageSize = val;
                 this.$message({
@@ -179,9 +254,7 @@
             },
             check() {
                 this.checkedNodes = this.$refs.tree.getCheckedNodes();
-                this.halfNode = this.$refs.tree.getHalfCheckedNodes();
                 console.log('checkedNodes', this.checkedNodes)
-                console.log('halfNode', this.$refs.tree.getHalfCheckedNodes());
             },
             treeSave() {
                 if(this.checkedNodes.length) {
@@ -211,3 +284,10 @@
         }   
     }
 </script>
+
+<style>
+
+.red {
+    color: red !important;
+}
+</style>
