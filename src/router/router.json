@@ -56,6 +56,11 @@
           "desc": "CustomSwitch 开关",
           "name": "CustomSwitch",
           "path": "/CustomSwitch"
+        },
+        {
+          "desc": "CustomSearch 查询",
+          "name": "CustomSearch",
+          "path": "/CustomSearch"
         }
       ]
     },

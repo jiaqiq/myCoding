@@ -9,6 +9,7 @@ import CustomSwitch from './customSwitch';
 import CustomTable from './customTable';
 import CustomTag from './customTag';
 import CustomTree from './customTree';
+import CustomSearch from './customSearch';
 
 import Button from './button/index.js';
 import collapseTransition from './collapse-transition/collapse-transition.js';
@@ -28,6 +29,7 @@ const components = [
   CustomTable,
   CustomTag,
   CustomTree,
+  CustomSearch,
 
   Button,
   collapseTransition,

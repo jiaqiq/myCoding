@@ -12,13 +12,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CustomUI from '../packages/index';
 
-import clipboard from 'clipboard';
-
 import MainHeader from '@/components/header.vue';
 
 import './assets/styles/common.css';
-//注册到vue原型上
-Vue.prototype.clipboard = clipboard;
 
 Vue.config.productionTip = false
 Vue.component('main-header', MainHeader);

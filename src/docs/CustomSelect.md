@@ -20,7 +20,7 @@
 
 <div class="demo-block">
     <div>
-        <custom-select customWidth="240" customHeight="30" v-model="selectValue" placeholder="请选择" clearable>
+        <custom-select customWidth="240" customHeight="30" v-model="selectValue" placeholder="请选择" multiple clearable>
             <el-option
                 v-for="item in options"
                 :key="item.value"
