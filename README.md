@@ -1,4 +1,4 @@
-# mycoding
+# custom-element
 
 ## Project setup
 ```
